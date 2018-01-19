@@ -1,5 +1,13 @@
-/* Webflow to Bootstrap convertor */
-/* global $ */
+/**
+ * webflow-bootstrap - Webflow to Bootstrap convertor
+ *
+ * @author   Samuel Liew <samliew@gmail.com>
+ * @license  MIT license
+ * @version  1.0.0
+ * @link     https://github.com/samliew/webflow-bootstrap
+ */
+
+/* global jQuery, $ */
 
 var Webflow = Webflow || [];
 Webflow.push(function() {
@@ -88,13 +96,13 @@ Webflow.push(function() {
   
   // Convert Tabs
   $('.w-tab-menu').addClass('nav nav-tabs').removeClass('w-tab-menu');
-  $('.w-tab-link').addClass('nav-link').removeClass('w-tab-link').wrap('<div class="nav-item w-inline-block" />')
-    .filter('.w--current').addClass('active');
+  $('.w-tab-link').off().addClass('nav-link').removeClass('w-tab-link').wrap('<div class="nav-item w-inline-block" />')
+  $('.nav-link.w--current').addClass('active');
     
   // Add tab click event
   $('.nav-item').click(function() {
-    $(this).children().addClass('active');
-    $(this).siblings().children().removeClass('active');
+    $(this).children().addClass('active w--current');
+    $(this).siblings().children().removeClass('active w--current');
   });
   
   // Finally load the Bootstrap script
