@@ -81,7 +81,7 @@ Webflow.push(function() {
     var elems = $(this);
     var elem = $(this);
     while (elem.length) {
-      elem = elem.next().not('label, button, input:submit');
+      elem = elem.next().not('label, button, input:submit, .form-group');
       elems = elems.add(elem);
     }
     elems.wrapAll('<div class="form-group" />')
